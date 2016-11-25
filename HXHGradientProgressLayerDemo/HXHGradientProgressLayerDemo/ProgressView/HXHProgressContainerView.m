@@ -37,6 +37,7 @@ static CGFloat const lineGapWidth = 10.0f;
     [self.outsideView beginAnimationWithDuration:self.animationDuration];
     [self.insideView beginAnimationWithDuration:self.animationDuration];
     [self.pointView beginAnimationWithDuration:self.animationDuration];
+    [self.countLabel countFrom:0.0 to:self.maxCount withDuration:self.animationDuration];
 }
 
 #pragma mark - Life Cycle
@@ -59,10 +60,10 @@ static CGFloat const lineGapWidth = 10.0f;
     self.colorGradientArray = @[(id)[[UIColor orangeColor] CGColor],(id)[[UIColor yellowColor] CGColor]];
     
     // 布局UI
-    [self configProgressWithMaxProgressValue:self.maxProgressValue animationDuration:self.animationDuration];
+    [self configProgressWithMaxProgressValue:self.maxProgressValue];
 }
 
-- (void)configProgressWithMaxProgressValue:(CGFloat)maxProgressValue animationDuration:(CFTimeInterval)duration {
+- (void)configProgressWithMaxProgressValue:(CGFloat)maxProgressValue {
     
     /********************************** 外圈 ************************************/
     self.outsideView = [[HXHArcRotateProgressView alloc] initWithFrame:self.bounds];
@@ -123,8 +124,6 @@ static CGFloat const lineGapWidth = 10.0f;
     self.countLabel.textAlignment = NSTextAlignmentCenter;
     self.countLabel.format = @"%.1f";
     [self addSubview:self.countLabel];
-    
-    [self.countLabel countFrom:0.0 to:self.maxCount withDuration:duration];
 }
 
 #pragma mark - Setter
@@ -132,25 +131,25 @@ static CGFloat const lineGapWidth = 10.0f;
 - (void)setMaxProgressValue:(CGFloat)maxProgressValue {
     _maxProgressValue = maxProgressValue;
     // 重新添加
-    [self configProgressWithMaxProgressValue:self.maxProgressValue animationDuration:self.animationDuration];
+    [self configProgressWithMaxProgressValue:self.maxProgressValue];
 }
 
 - (void)setMaxCount:(CGFloat)maxCount {
     _maxCount = maxCount;
     // 重新添加
-    [self configProgressWithMaxProgressValue:self.maxProgressValue animationDuration:self.animationDuration];
+    [self configProgressWithMaxProgressValue:self.maxProgressValue];
 }
 
 - (void)setColorGradientArray:(NSArray *)colorGradientArray {
     _colorGradientArray = colorGradientArray;
     // 重新添加
-    [self configProgressWithMaxProgressValue:self.maxProgressValue animationDuration:self.animationDuration];
+    [self configProgressWithMaxProgressValue:self.maxProgressValue];
 }
 
 - (void)setCountLabelTextColor:(UIColor *)countLabelTextColor {
     _countLabelTextColor = countLabelTextColor;
     // 重新添加
-    [self configProgressWithMaxProgressValue:self.maxProgressValue animationDuration:self.animationDuration];
+    [self configProgressWithMaxProgressValue:self.maxProgressValue];
 }
 
 @end
