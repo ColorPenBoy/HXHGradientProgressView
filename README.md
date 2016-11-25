@@ -3,7 +3,7 @@
 
 ### 效果图
 
-![](../demo.gif)
+![](/blob/master/demo.gif)
 
 ### 使用方法
 
