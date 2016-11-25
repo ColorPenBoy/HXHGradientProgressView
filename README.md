@@ -3,7 +3,7 @@
 
 ### 效果图
 
-![](/blob/master/demo.gif)
+![](https://github.com/ColorPenBoy/HXHGradientProgressView/blob/master/demo.gif)
 
 ### 使用方法
 
